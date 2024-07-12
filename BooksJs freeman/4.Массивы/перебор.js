@@ -15,7 +15,6 @@ function printAndGetHighScore(scores) {
         if(scores[i] > highScore) {
             highScore = scores[i];
 
-
         }
     }
 
@@ -23,20 +22,22 @@ function printAndGetHighScore(scores) {
 
 }
 
+function getBestResults(scores, highScore) {
+    var bestSolution = [];
+    for (var i = 0; i < scores.length; i++) {
+        if (scores[i] == highScore) {
+            bestSolution.push(i);
+        }
+    }
+    return bestSolution;
+}
+
 var highScore = printAndGetHighScore(scores);
 console.log("Bubbles test: " + scores.length);
 console.log("Highest bubble score: " + highScore);
 
 
-var bestSolution = [];
-
-for (var i = 0; i < scores.length; i++){
-    if(scores[i] == highScore) {
-        bestSolution.push(i);
-    }
-}
-
+var bestSolution = getBestResults(scores, highScore);
 console.log("Solution with the highest score: " + bestSolution);
 
 
-//191
